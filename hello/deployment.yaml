@@ -1,19 +1,16 @@
-apiVersion: apps/v1
+apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: github-presentation
+  name: nginx-deployment
 spec:
-  selector:
-    matchLabels:
-      app: github-presentation
-  replicas: 1 # tells deployment to run 1 pods matching the template
-  template: # create pods using pod definition in this template
+  replicas: 1
+  template:
     metadata:
       labels:
-        app: github-presentation
+        app: nginx
     spec:
       containers:
-        - name: github-presentation
-          image: ghcr.io/casper-delfi/githubpresentation:v1
+        - name: nginx
+          image: nginx:latest
           ports:
             - containerPort: 80
