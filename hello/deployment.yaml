@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: github-presentation
+spec:
+  selector:
+    matchLabels:
+      app: github-presentation
+  replicas: 1 # tells deployment to run 1 pods matching the template
+  template: # create pods using pod definition in this template
+    metadata:
+      labels:
+        app: github-presentation
+    spec:
+      containers:
+        - name: github-presentation
+          image: ghcr.io/casper-delfi/githubpresentation:v1
+          ports:
+            - containerPort: 80
