@@ -14,5 +14,6 @@ jobs:
   deploy:
     name: deploy
     runs-on: ubuntu-latest
+    environment: testing
     steps:
       - run: echo 'The triggering workflow succeeded deploying now'
