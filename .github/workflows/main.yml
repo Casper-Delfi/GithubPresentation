@@ -6,7 +6,6 @@ on:
 
 jobs:
   tests:
-  	
     runs-on: ubuntu-latest
     name: Setup and Run Tests
     steps:
