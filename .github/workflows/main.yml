@@ -1,0 +1,19 @@
+---
+name: Deploy
+on:
+  push:
+    branches: [main]
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    name: Setup and Run Tests
+    steps:
+      - run: echo 'testing....'
+      
+  deploy:
+    name: deploy
+    runs-on: ubuntu-latest
+    environment: Staging
+    steps:
+      - run: echo 'The triggering workflow succeeded deploying now'
