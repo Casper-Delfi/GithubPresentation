@@ -19,7 +19,8 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y curl
-          curl -L https://raw.githubusercontent.com/GitGuardian/gg-shield/main/installer/gg-shield.sh | sudo sh
+          sudo apt install python3-pip
+          pip install ggshield
       
       - name: Authenticate with GitGuardian
         env:
