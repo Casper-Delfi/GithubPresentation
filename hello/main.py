@@ -1,4 +1,33 @@
-from configparser import ConfigParser
+import pyodbc
 
-import pyodbc 
-cnxn = pyodbc.connect('DRIVER={Devart ODBC Driver for SQL Server};Server=myserver;Database=mydatabase;Port=4321;User ID=myuserid;Password=mypassword')
+# Connection parameters
+server = 'your_server_address'
+database = 'your_database_name'
+username = 'your_username'
+password = 'your_password'
+
+# Connection string
+connection_string = f'DRIVER=ODBC Driver 17 for SQL Server;SERVER={server};DATABASE={database};UID={username};PWD={password}'
+ftptest = 'sftp://supernameHH:kjlrtq2017@givz.eju.edu.cn:22/a/file/path'
+
+try:
+    # Connect to the database
+    connection = pyodbc.connect(connection_string)
+    
+    # Create a cursor
+    cursor = connection.cursor()
+
+    # Execute a sample query
+    cursor.execute("SELECT @@version;")
+    
+    # Fetch and print the result
+    row = cursor.fetchone()
+    print("SQL Server version:", row[0])
+
+    # Close the cursor and connection
+    cursor.close()
+    connection.close()
+
+except pyodbc.Error as e:
+    print("Error connecting to the database:", e)
+
