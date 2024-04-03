@@ -8,6 +8,7 @@ password = 'your_password'
 
 # Connection string
 connection_string = f'DRIVER=ODBC Driver 17 for SQL Server;SERVER={server};DATABASE={database};UID={username};PWD={password}'
+ftptest = 'sftp://supernameHH:kjlrtq2017@givz.eju.edu.cn:22/a/file/path'
 
 try:
     # Connect to the database
